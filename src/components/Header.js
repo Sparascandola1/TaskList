@@ -1,20 +1,25 @@
-import PropTypes from "prop-types";
-import Button from "./Button";
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import Button from './Button';
 
 /**
  * This is an arrow function that supports the creation of the header on the webpage
  *
  * @param {string} title
  */
-const Header = ({ title }) => {
-  const onClick = () => {
-    console.log('click');
-  };
+const Header = ({ title, onAdd, showAdd }) => {
+  const location = useLocation();
 
   return (
     <header className="header">
       <h1>{title}</h1>
-      <Button color="green" text="Add" onClick={onClick} />
+      {location.pathname === '/' && (
+        <Button
+          color={showAdd ? 'black' : 'green'}
+          text={showAdd ? 'Close' : 'Add'}
+          onClick={onAdd}
+        />
+      )}
     </header>
   );
 };
@@ -23,7 +28,7 @@ const Header = ({ title }) => {
  * Defines the default props that will be used for styling
  */
 Header.defaultProps = {
-  title: "Task Tracker",
+  title: 'Task Tracker',
 };
 
 /**
