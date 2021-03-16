@@ -15,7 +15,7 @@
     {
       "text": "CST-247",
       "day": "Mar 15th at 4:45",
-      "reminder": true,
+      "reminder": false,
       "id": 3
     }
   ]
